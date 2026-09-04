@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tomas Bokedal — New Testament and Early Christianity</title>
+<meta name="description" content="Tomas Bokedal, Associate Professor of New Testament and Early Christianity at NLA University College, Bergen. Research on canon formation, nomina sacra, early Christian manuscripts, and the relation of Scripture and theology.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=Gentium+Book+Plus:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:        #172033;
+  --ink-soft:   #545E72;
+  --ink-faint:  #7B8397;
+  --field:      #E7E6E0;
+  --paper:      #F7F6F2;
+  --rubric:     #9E2B25;
+  --rule:       #CAC7BD;
+
+  --serif: "Spectral", Georgia, "Times New Roman", serif;
+  --greek: "Gentium Book Plus", "New Athena Unicode", "GFS Didot", Georgia, serif;
+  --sans:  "IBM Plex Sans Condensed", "Helvetica Neue", Arial, sans-serif;
+
+  --measure: 66ch;
+  --rail: 15rem;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{ -webkit-text-size-adjust:100% }
+
+body{
+  margin:0;
+  background:var(--field);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:1.0625rem;
+  line-height:1.68;
+  font-kerning:normal;
+  font-variant-ligatures:common-ligatures;
+}
+
+::selection{ background:var(--rubric); color:var(--paper) }
+
+a{ color:inherit; text-decoration:none; border-bottom:1px solid var(--rule); }
+a:hover{ border-bottom-color:var(--rubric); color:var(--rubric) }
+a:focus-visible{
+  outline:2px solid var(--rubric);
+  outline-offset:3px;
+  border-radius:1px;
+}
+
+.skip{
+  position:absolute; left:-9999px; top:0;
+  background:var(--ink); color:var(--paper);
+  padding:.6rem 1rem; z-index:99; font-family:var(--sans);
+}
+.skip:focus{ left:.5rem; top:.5rem }
+
+/* ─────────── Hero ─────────── */
+
+.hero{
+  padding:clamp(3rem,9vw,6.5rem) var(--pad,1.5rem) clamp(2.5rem,6vw,4rem);
+  border-bottom:1px solid var(--rule);
+  background:var(--paper);
+}
+.hero-inner{ max-width:60rem; margin:0 auto }
+
+/* ─────────── Portrait ─────────── */
+
+.portrait{
+  margin:0 0 2.25rem;
+  width:11rem;
+}
+.portrait img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  background:var(--field);
+}
+.portrait figcaption{
+  font-family:var(--sans);
+  font-size:.8125rem;
+  color:var(--ink-faint);
+  margin-top:.6rem;
+  line-height:1.35;
+}
+/* shown only if portrait.jpg is missing */
+.portrait.empty img{ display:none }
+.portrait.empty::before{
+  content:"Portrait unavailable — save a copy as portrait.jpg beside this file";
+  display:flex;
+  align-items:center;
+  aspect-ratio:1/1;
+  padding:1.1rem;
+  border:1px dashed var(--rule);
+  font-family:var(--sans);
+  font-size:.8125rem;
+  line-height:1.45;
+  color:var(--ink-faint);
+}
+
+.hero h1{
+  font-size:clamp(2.4rem,6.5vw,4.25rem);
+  font-weight:600;
+  line-height:1.02;
+  letter-spacing:-0.02em;
+  margin:0 0 .5rem;
+}
+
+.hero .standfirst{
+  font-family:var(--sans);
+  font-size:clamp(1rem,2.3vw,1.2rem);
+  font-weight:400;
+  line-height:1.45;
+  color:var(--ink-soft);
+  max-width:34rem;
+  margin:0 0 clamp(2.25rem,6vw,3.5rem);
+}
+.hero .standfirst strong{ font-weight:600; color:var(--ink) }
+
+/* the nomina sacra strip — the page's one bold moment */
+.ns{
+  display:flex;
+  flex-wrap:wrap;
+  gap:clamp(1rem,4vw,2.6rem);
+  align-items:flex-end;
+  margin:0 0 1.1rem;
+  padding:0;
+  list-style:none;
+}
+.ns li{ margin:0 }
+
+.ns .glyph{
+  display:block;
+  position:relative;
+  font-family:var(--greek);
+  font-size:clamp(2.1rem,7vw,3.6rem);
+  line-height:1;
+  letter-spacing:.06em;
+  color:var(--ink);
+  padding-top:.34em;
+}
+.ns .glyph::before{
+  content:"";
+  position:absolute;
+  top:.12em; left:0; right:.06em;
+  height:2px;
+  background:var(--rubric);
+  transform-origin:left center;
+  transform:scaleX(0);
+  animation:stroke .55s cubic-bezier(.22,.7,.3,1) forwards;
+}
+.ns li:nth-child(1) .glyph::before{ animation-delay:.15s }
+.ns li:nth-child(2) .glyph::before{ animation-delay:.28s }
+.ns li:nth-child(3) .glyph::before{ animation-delay:.41s }
+.ns li:nth-child(4) .glyph::before{ animation-delay:.54s }
+.ns li:nth-child(5) .glyph::before{ animation-delay:.67s }
+
+@keyframes stroke{ to{ transform:scaleX(1) } }
+
+.ns .gloss{
+  display:block;
+  font-family:var(--sans);
+  font-size:.8rem;
+  color:var(--ink-faint);
+  margin-top:.5rem;
+  letter-spacing:.01em;
+}
+
+.ns-note{
+  font-family:var(--sans);
+  font-size:.875rem;
+  color:var(--ink-faint);
+  max-width:38rem;
+  margin:0;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ns .glyph::before{ animation:none; transform:scaleX(1) }
+  *{ animation-duration:.001ms !important; transition-duration:.001ms !important }
+}
+
+/* ─────────── Frame: rail + content ─────────── */
+
+.frame{
+  max-width:60rem;
+  margin:0 auto;
+  padding:0 var(--pad,1.5rem) 5rem;
+}
+
+nav.rail{
+  display:none;
+}
+
+@media (min-width:62rem){
+  .hero-inner,.frame{ max-width:72rem }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:var(--rail) minmax(0,1fr);
+    gap:4rem;
+    align-items:start;
+  }
+  .portrait{ width:100%; margin:.4rem 0 0 }
+  .frame{
+    display:grid;
+    grid-template-columns:var(--rail) minmax(0,1fr);
+    gap:4rem;
+    align-items:start;
+  }
+  nav.rail{
+    display:block;
+    position:sticky;
+    top:0;
+    padding:3.5rem 0 2rem;
+    font-family:var(--sans);
+    font-size:.9rem;
+  }
+  nav.rail ol{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex; flex-direction:column; gap:.42rem;
+  }
+  nav.rail a{
+    border-bottom:0;
+    color:var(--ink-soft);
+    display:inline-block;
+    padding-left:.85rem;
+    border-left:2px solid transparent;
+    margin-left:-.85rem;
+    line-height:1.35;
+  }
+  nav.rail a:hover{ color:var(--rubric); border-left-color:var(--rubric) }
+  nav.rail a[aria-current="true"]{ color:var(--ink); border-left-color:var(--rubric); font-weight:500 }
+}
+
+main{ min-width:0 }
+
+/* ─────────── Sections ─────────── */
+
+section{
+  padding:clamp(2.5rem,6vw,3.75rem) 0;
+  border-bottom:1px solid var(--rule);
+}
+section:last-of-type{ border-bottom:0 }
+
+/* section headings carry the supralinear stroke */
+h2{
+  position:relative;
+  font-size:clamp(1.35rem,3vw,1.7rem);
+  font-weight:600;
+  letter-spacing:-0.012em;
+  line-height:1.2;
+  margin:0 0 1.6rem;
+  padding-top:.75rem;
+  display:inline-block;
+}
+h2::before{
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:2.4rem; height:2px;
+  background:var(--rubric);
+}
+
+h3{
+  font-family:var(--sans);
+  font-size:.95rem;
+  font-weight:600;
+  letter-spacing:.005em;
+  color:var(--ink);
+  margin:2.25rem 0 .9rem;
+}
+h3:first-of-type{ margin-top:0 }
+
+p{ max-width:var(--measure); margin:0 0 1.15rem }
+p:last-child{ margin-bottom:0 }
+
+.lede{
+  font-size:1.2rem;
+  line-height:1.6;
+  color:var(--ink);
+}
+
+.muted{ color:var(--ink-soft) }
+
+/* ─────────── Positions ─────────── */
+
+dl.posts{
+  margin:0;
+  max-width:var(--measure);
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:0;
+}
+dl.posts dt{
+  font-family:var(--sans);
+  font-size:.875rem;
+  color:var(--ink-faint);
+  padding:.85rem 1.4rem .85rem 0;
+  border-top:1px solid var(--rule);
+  white-space:nowrap;
+}
+dl.posts dd{
+  margin:0;
+  padding:.8rem 0;
+  border-top:1px solid var(--rule);
+  line-height:1.5;
+}
+dl.posts dd .where{
+  display:block;
+  font-family:var(--sans);
+  font-size:.875rem;
+  color:var(--ink-soft);
+  margin-top:.1rem;
+}
+dl.posts dt:first-of-type,dl.posts dd:first-of-type{ border-top:0; padding-top:0 }
+
+@media (max-width:34rem){
+  dl.posts{ display:block }
+  dl.posts dt{ border-top:1px solid var(--rule); padding:.9rem 0 .15rem; white-space:normal }
+  dl.posts dd{ border-top:0; padding:0 0 .1rem }
+  dl.posts dt:first-of-type{ border-top:0; padding-top:0 }
+}
+
+/* ─────────── Books ─────────── */
+
+.books{ list-style:none; margin:0; padding:0 }
+.books > li{
+  max-width:var(--measure);
+  padding:1.6rem 0;
+  border-top:1px solid var(--rule);
+}
+.books > li:first-child{ border-top:0; padding-top:0 }
+
+.books .title{
+  font-size:1.15rem;
+  font-weight:600;
+  font-style:italic;
+  line-height:1.3;
+  display:block;
+  margin-bottom:.3rem;
+}
+.books .imprint{
+  font-family:var(--sans);
+  font-size:.875rem;
+  color:var(--ink-soft);
+  display:block;
+  margin-bottom:.7rem;
+}
+.books p{ margin-bottom:0; color:var(--ink-soft); font-size:1rem }
+
+/* ─────────── Pulled-out feature blocks (Forum, Series) ─────────── */
+
+.feature{
+  background:var(--paper);
+  border-left:2px solid var(--rubric);
+  padding:1.6rem 1.75rem;
+  margin:0 0 1.5rem;
+  max-width:var(--measure);
+}
+.feature .role{
+  font-family:var(--sans);
+  font-size:.875rem;
+  color:var(--ink-soft);
+  margin:0 0 .55rem;
+  max-width:none;
+}
+.feature .name{
+  font-size:1.15rem;
+  font-weight:600;
+  line-height:1.3;
+  margin:0 0 .7rem;
+  max-width:none;
+}
+.feature p:last-child{ margin-bottom:0 }
+
+/* ─────────── Publication lists ─────────── */
+
+ul.pubs{ list-style:none; margin:0; padding:0 }
+ul.pubs li{
+  max-width:var(--measure);
+  padding:.95rem 0 .95rem 3.1rem;
+  border-top:1px solid var(--rule);
+  position:relative;
+  font-size:1rem;
+  line-height:1.55;
+}
+ul.pubs li:first-child{ border-top:0 }
+ul.pubs .yr{
+  position:absolute;
+  left:0; top:1.05rem;
+  font-family:var(--sans);
+  font-size:.8125rem;
+  color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+ul.pubs cite{ font-style:italic }
+ul.pubs .oa{
+  font-family:var(--sans);
+  font-size:.75rem;
+  color:var(--rubric);
+  border:1px solid var(--rubric);
+  border-radius:2px;
+  padding:.05rem .3rem;
+  margin-left:.3rem;
+  white-space:nowrap;
+  vertical-align:.05em;
+}
+/* a published reply to the item above it */
+ul.pubs .reply{
+  display:block;
+  margin-top:.55rem;
+  padding-left:.9rem;
+  border-left:1px solid var(--rubric);
+  font-size:.9375rem;
+  line-height:1.5;
+  color:var(--ink-soft);
+}
+ul.pubs .venue{
+  display:block;
+  font-family:var(--sans);
+  font-size:.8125rem;
+  color:var(--ink-faint);
+  margin-top:.25rem;
+}
+
+@media (max-width:34rem){
+  ul.pubs li{ padding-left:0; padding-top:1.9rem }
+  ul.pubs .yr{ top:.85rem }
+}
+
+/* ─────────── Fields of research ─────────── */
+
+ul.fields{
+  list-style:none;
+  margin:0; padding:0;
+  max-width:var(--measure);
+  columns:2;
+  column-gap:2.5rem;
+}
+ul.fields li{
+  break-inside:avoid;
+  padding:.42rem 0;
+  border-bottom:1px solid var(--rule);
+  font-size:1rem;
+  line-height:1.4;
+}
+@media (max-width:34rem){ ul.fields{ columns:1 } }
+
+/* ─────────── Contact ─────────── */
+
+.contact{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem 2rem;
+  font-family:var(--sans);
+  font-size:.95rem;
+  margin-top:1.25rem;
+  padding:0;
+  list-style:none;
+  max-width:var(--measure);
+}
+.contact li{ margin:0 }
+.contact .label{ color:var(--ink-faint); display:block; font-size:.8125rem }
+
+footer{
+  padding:2.25rem var(--pad,1.5rem) 3rem;
+  border-top:1px solid var(--rule);
+  font-family:var(--sans);
+  font-size:.8125rem;
+  color:var(--ink-faint);
+}
+footer div{ max-width:72rem; margin:0 auto }
+
+@media (min-width:48rem){ :root{ --pad:2.5rem } }
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero">
+  <div class="hero-inner">
+
+    <figure class="portrait">
+      <img src="https://www.nla.no/om-nla/ansatte/tomas-bokedal/_/image/23408d62-b7ba-4530-9eb2-75eaea44337d:9c7a6f2459337484daaab814f2ef4412de961b4c/block-350-350/tomas-bokedal-profile-156746546814302944"
+           alt="Tomas Bokedal">
+      <!-- Better: download this image, save it beside index.html, and use src="portrait.jpg"
+           so the page does not depend on NLA's server. -->
+    </figure>
+
+    <div class="hero-text">
+
+    <ul class="ns" aria-label="Nomina sacra: the contracted divine names of the earliest Christian manuscripts">
+      <li><span class="glyph" lang="grc">ΙΣ</span><span class="gloss">Jesus</span></li>
+      <li><span class="glyph" lang="grc">ΧΣ</span><span class="gloss">Christ</span></li>
+      <li><span class="glyph" lang="grc">ΘΣ</span><span class="gloss">God</span></li>
+      <li><span class="glyph" lang="grc">ΚΣ</span><span class="gloss">Lord</span></li>
+      <li><span class="glyph" lang="grc">ΠΝΑ</span><span class="gloss">Spirit</span></li>
+    </ul>
+    <p class="ns-note">Five contracted names, each under a ruled stroke, in nearly every Christian manuscript we have from the second century onward. Reading them closely is where most of my work begins.</p>
+
+    <h1>Tomas Bokedal</h1>
+    <p class="standfirst">
+      <strong>Associate Professor of New Testament and Early Christianity</strong>, NLA University College, Bergen &middot; Docent in New Testament Exegesis, Lund University &middot; formerly Lecturer in New Testament, King&rsquo;s College, University of Aberdeen
+    </p>
+
+    </div>
+  </div>
+</header>
+
+<div class="frame">
+
+  <nav class="rail" aria-label="Sections of this page">
+    <ol>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research fields</a></li>
+      <li><a href="#positions">Positions</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#series">T&amp;T Clark Studies in Canon</a></li>
+      <li><a href="#forum">Scripture and Theology Forum</a></li>
+      <li><a href="#edited">Edited volumes</a></li>
+      <li><a href="#articles">Articles and chapters</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#public">Writing for a wider public</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <main id="main">
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="lede">I work on how the Christian Bible came to be a book — and on what the physical habits of the scribes who copied it can still tell us about the theology of the people who made them.</p>
+      <p>My research sits where New Testament studies, papyrology and doctrinal theology meet. Two questions run through most of it. First: how did a set of apostolic writings become a canon, and what did the church think it was doing as that happened? Second: what do the material features of the earliest manuscripts — the contracted divine names, the ruled strokes, the codex format, the chapter divisions and other paratexts — reveal about early Christian devotion and belief?</p>
+      <p>Those questions have taken me through canon formation and canonical criticism, the nomina sacra, the rule of faith in Irenaeus and the second-century fathers, Pauline theology, and the paratextual tradition of the Greek New Testament. Alongside the historical work I have a continuing commitment to repairing the modern separation of biblical studies from systematic theology, which is the concern behind both the Scripture and Theology Forum and much of my editorial work.</p>
+      <p>I hold a ThD from Lund University and am based in Bergen, Norway.</p>
+    </section>
+
+    <section id="research">
+      <h2>Research fields</h2>
+      <ul class="fields">
+        <li>Canon formation and canonical criticism</li>
+        <li>Nomina sacra and scribal practice</li>
+        <li>Early Christian papyrology and codicology</li>
+        <li>Paratextual features of the New Testament</li>
+        <li>The rule of faith and early creedal formation</li>
+        <li>Patristic exegesis, especially Irenaeus</li>
+        <li>Pauline theology</li>
+        <li>Textual and ritual theory</li>
+        <li>Scripture and theology as a single enquiry</li>
+        <li>Transmission of the gospel tradition</li>
+        <li>Kierkegaard studies</li>
+        <li>Studies in transhumanism</li>
+      </ul>
+    </section>
+
+    <section id="positions">
+      <h2>Positions and affiliations</h2>
+      <dl class="posts">
+
+        <dt>Present</dt>
+        <dd>Associate Professor of New Testament and Early Christianity
+          <span class="where">NLA University College, Bergen, Norway</span></dd>
+
+        <dt>Present</dt>
+        <dd>Docent in New Testament Exegesis
+          <span class="where">Lund University, Sweden</span></dd>
+
+        <dt>Present</dt>
+        <dd>Co-editor, T&amp;T Clark Studies in Canon
+          <span class="where">With Darian R. Lockett &middot; Bloomsbury T&amp;T Clark, London</span></dd>
+
+        <dt>Present</dt>
+        <dd>Convenor, Scripture and Theology Forum</dd>
+
+        <dt>2007&ndash;2024</dt>
+        <dd>Lecturer in New Testament, School of Divinity, History and Philosophy
+          <span class="where">King&rsquo;s College, University of Aberdeen, Scotland</span></dd>
+
+        <dt>Previously</dt>
+        <dd>Lecturer in New Testament
+          <span class="where">Lutheran School of Theology, Gothenburg, Sweden</span></dd>
+
+        <dt>Doctorate</dt>
+        <dd>ThD in Theology
+          <span class="where">Lund University, Sweden</span></dd>
+
+      </dl>
+    </section>
+
+    <section id="books">
+      <h2>Books</h2>
+      <ul class="books">
+
+        <li>
+          <cite class="title">Christ the Center: How the Rule of Faith, the Nomina Sacra, and Numerical Patterns Shape the Canon</cite>
+          <span class="imprint">Lexham Academic, Bellingham, WA, 2023 &middot; 360 pp.</span>
+          <p>An argument that the rule of faith is not a second-century overlay on Scripture but something already inscribed in the text as the scribes handed it on. The book traces the interlocking of canon, creed and the contracted divine names, and reads the numerical patterning of the nomina sacra as evidence of deliberate theological craft — evidence present in every early manuscript and absent from every modern critical edition.</p>
+        </li>
+
+        <li>
+          <cite class="title">The Formation and Significance of the Christian Biblical Canon: A Study in Text, Ritual and Interpretation</cite>
+          <span class="imprint">Bloomsbury T&amp;T Clark, London, 2014</span>
+          <p>A four-part account of canon formation that treats the canon as an act of literary preservation and actualisation of the church&rsquo;s apostolic tradition — &lsquo;the Scriptures and the Lord&rsquo; — addressed first to the church and then to the wider society. The study works through the linguistic and effective-historical, the textual and material, the performative, and the ideational dimensions of the canon in turn, giving sustained attention to the nomina sacra convention.</p>
+        </li>
+
+        <li>
+          <cite class="title">Bibeln i funktion: Om kanon, kyrka och tradition</cite>
+          <span class="imprint">FFG:s skriftserie 14 &middot; BV-Förlag, with Församlingsfakulteten and Församlingsförlaget, Gothenburg, 2018 &middot; 165 pp.</span>
+          <p>A Swedish-language account of the Bible as a functioning canon within the life of the church, written for readers outside the guild: how the collection took shape, what tradition contributes to reading it, and why the question of canon remains a live one for congregations.</p>
+        </li>
+
+        <!-- FORTHCOMING / SWEDISH TITLE — edit or delete as needed
+        <li>
+          <cite class="title">Den första Bibeln: Kanonbildningen och de tidigaste bibelmanuskriptens teologi</cite>
+          <span class="imprint">Publisher, year — forthcoming</span>
+          <p>Short description.</p>
+        </li>
+        -->
+
+      </ul>
+    </section>
+
+    <section id="series">
+      <h2>T&amp;T Clark Studies in Canon</h2>
+
+      <div class="feature">
+        <p class="role">Co-editor with Darian R. Lockett, book series</p>
+        <p class="name">T&amp;T Clark Studies in Canon &mdash; Bloomsbury T&amp;T Clark</p>
+        <p>A new monograph series devoted to the formation, shape and continuing significance of the biblical canon. The series is open to work across the whole span of the question: the historical processes by which the Jewish and Christian canons took form, the manuscript and material evidence for those processes, canonical approaches to interpretation, and the theological and hermeneutical questions a canon raises for readers now.</p>
+      </div>
+
+      <p class="muted">Proposals from established scholars and from recent doctoral graduates are welcome. Please write to me at the address below with a summary of the argument and a chapter outline.</p>
+    </section>
+
+    <section id="forum">
+      <h2>Scripture and Theology Forum</h2>
+
+      <div class="feature">
+        <p class="role">Convenor and founding member</p>
+        <p class="name">An international network for biblical scholars and systematic theologians</p>
+        <p>Biblical studies and systematic theology were, for most of their history, a single conversation. The modern division of labour between them brought real gains in specialisation and a real loss: theologians reading Scripture without exegetes, exegetes reading texts without doctrine. The Forum exists to put the two disciplines back in the same room.</p>
+      </div>
+
+      <p>The Forum brings together scholars of different professional and confessional backgrounds for conferences, colloquia and collaborative publication, including an open panel across five sessions that I have chaired. Its first major collective output was the volume <cite>Scripture and Theology: Historical and Systematic Perspectives</cite> (de Gruyter, 2023), which I edited with Ludger Jansen and Michael Borowski.</p>
+    </section>
+
+    <section id="edited">
+      <h2>Edited volumes</h2>
+      <ul class="pubs">
+        <li>
+          <span class="yr">2023</span>
+          With Ludger Jansen and Michael Borowski, eds., <cite>Scripture and Theology: Historical and Systematic Perspectives</cite>. Theologische Bibliothek Töpelmann 201. Berlin and Boston: de Gruyter. 497 pp.
+        </li>
+      </ul>
+      <!-- Add further edited volumes using the same <li> pattern. -->
+    </section>
+
+    <section id="articles">
+      <h2>Selected articles and chapters</h2>
+      <ul class="pubs">
+
+        <li>
+          <span class="yr">2026</span>
+          &lsquo;Early Interaction Between Scripture, Rule of Faith, and Evolving Christian Doctrine and Tradition: A Response to Alister McGrath&rsquo;s <cite>The Nature of Christian Doctrine</cite>&rsquo;, <cite>International Journal of Systematic Theology</cite> 28. Part of the symposium on McGrath&rsquo;s book edited by Gijsbert van den Brink and Michael Borowski. <a href="https://doi.org/10.1111/ijst.12799">doi:10.1111/ijst.12799</a><span class="oa">Open access</span>
+          <span class="reply">McGrath replies to his six critics in the same issue: Alister E. McGrath, &lsquo;The Nature of Christian Doctrine: A Conversation with My Critics&rsquo;, <a href="https://doi.org/10.1111/ijst.12793">doi:10.1111/ijst.12793</a></span>
+        </li>
+
+        <li>
+          <span class="yr">2026</span>
+          With Solveig Magnus Reindal, Tomas Stølen and Stein M. Wivestad, &lsquo;Risking Human Dignity? Reflections on Transhumanist Understandings of Education&rsquo;, <cite>Journal of Philosophy of Education</cite> 60, no. 3: 572&ndash;586. <a href="https://doi.org/10.1093/jopedu/qhaf064">doi:10.1093/jopedu/qhaf064</a><span class="oa">Open access</span>
+        </li>
+
+        <li>
+          <span class="yr">2026</span>
+          &lsquo;The Rule of Faith and the Formation of the New Testament Canon&rsquo;, in Stanley E. Porter and Benjamin P. Laird, eds., <cite>The New Testament Canon in Contemporary Research</cite>. Texts and Editions for New Testament Studies 21. Leiden: Brill. <a href="https://doi.org/10.1163/9789004751071_006">doi:10.1163/9789004751071_006</a>
+        </li>
+
+        <li>
+          <span class="yr">2025</span>
+          &lsquo;Rule of Faith and the Emerging Symbolum Apostolorum: Origin, Function, Structure&rsquo;, in Michael F. Bird and Scott Harrower, eds., <cite>Second-Century Christianity: A Sourcebook</cite>. Waco, TX: Baylor University Press.
+        </li>
+
+        <li>
+          <span class="yr">2025</span>
+          &lsquo;Marcion&rsquo;s Teaching, Ecclesial Crisis and the Church&rsquo;s Resolution: Lessons on the Broken Relationship between Scripture and Theology for Theology Teaching&rsquo;, in S. Weber, B. Nårheim and I. Nell, eds., <cite>Theological Pedagogies: Reflections on Person, Place, Process and Practices in Teaching and Learning Theology in Times of Crisis</cite>. HTS Religion &amp; Society Series 19. Cape Town: AOSIS.<span class="oa">Open access</span>
+        </li>
+
+        <li>
+          <span class="yr">2023</span>
+          &lsquo;But for Me, the Scriptures are Jesus Christ (<span lang="grc">Ι&#x305;Ϲ&#x305; Χ&#x305;Ϲ&#x305;</span>; Ign. <cite>Phld.</cite> 8:2): Creedal Text-Coding and the Early Scribal System of Nomina Sacra&rsquo;, in Stanley E. Porter, David I. Yoon and Chris S. Stevens, eds., <cite>Paratextual Features of New Testament Papyrology and Early Christian Manuscripts</cite>. Texts and Editions for New Testament Studies. Leiden: Brill, 89&ndash;122. <a href="https://doi.org/10.1163/9789004537972_006">doi:10.1163/9789004537972_006</a>
+        </li>
+
+        <li>
+          <span class="yr">2023</span>
+          With Ludger Jansen and Michael Borowski, &lsquo;Scripture and Theology in Context&rsquo;, introduction to <cite>Scripture and Theology: Historical and Systematic Perspectives</cite>. Berlin and Boston: de Gruyter.
+        </li>
+
+        <li>
+          <span class="yr">2022</span>
+          With Solveig Magnus Reindal, Svein Rise and Stein M. Wivestad, &lsquo;&ldquo;Someone&rdquo; versus &ldquo;Something&rdquo;: A Reflection on Transhumanist Values in Light of Education&rsquo;, <cite>Journal of Philosophy of Education</cite> 56, no. 2: 227&ndash;237. <a href="https://doi.org/10.1111/1467-9752.12628">doi:10.1111/1467-9752.12628</a><span class="oa">Open access</span>
+        </li>
+
+        <li>
+          <span class="yr">2017</span>
+          &lsquo;Canon/Scripture&rsquo;, in Tom Thatcher, Chris Keith, Raymond F. Person Jr and Elsie R. Stern, eds., <cite>The Dictionary of the Bible and Ancient Media</cite>. London: Bloomsbury T&amp;T Clark.
+        </li>
+
+        <li>
+          <span class="yr">2015</span>
+          &lsquo;The Early Rule-of-Faith Pattern as Emergent Biblical Theology&rsquo;, <cite>Theofilos</cite> 7, no. 1 (Suppl.): 57&ndash;75.
+        </li>
+
+        <li>
+          <span class="yr">2013</span>
+          &lsquo;The Rule of Faith: Tracing Its Origins&rsquo;, <cite>Journal of Theological Interpretation</cite> 7, no. 2: 233&ndash;255. <a href="http://www.jstor.org/stable/26421568">JSTOR</a>
+        </li>
+
+        <!-- ADD ENTRIES HERE. Copy this block and fill it in:
+        <li>
+          <span class="yr">YEAR</span>
+          &lsquo;Title of the article&rsquo;, <cite>Journal or Volume Title</cite> vol (year): pages.
+        </li>
+        -->
+
+      </ul>
+      <p class="muted" style="margin-top:1.5rem">Full research output is listed on the <a href="https://abdn.elsevierpure.com/en/publications/?search=tomas%20bokedal&amp;searchBy=PartOfNameOrTitle">University of Aberdeen research portal</a> and in the <a href="https://nva.sikt.no/research-profile/1870985">Norwegian NVA register</a>, with papers on <a href="https://aberdeen.academia.edu/TomasBokedal">Academia.edu</a>.</p>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching and supervision</h2>
+      <p>At NLA University College I teach New Testament exegesis and early Christianity across the undergraduate and graduate programmes, with courses on the Gospels, the Pauline letters, Greek text reading, and the history of the canon. During my years at King&rsquo;s College, Aberdeen, I taught New Testament in the School of Divinity, History and Philosophy and supervised research students in that field.</p>
+      <p>I welcome enquiries from prospective doctoral students working on canon formation, early Christian manuscripts and scribal practice, patristic exegesis, or the relation between biblical studies and systematic theology.</p>
+    </section>
+
+    <section id="public">
+      <h2>Writing for a wider public</h2>
+      <p>Alongside the scholarly work I write for readers outside the university, in English and in Norwegian, and speak regularly to congregations, clergy gatherings and student groups on the origins of the Bible.</p>
+
+      <ul class="pubs">
+
+        <li>
+          <span class="yr">2023</span>
+          &lsquo;What Was the First Bible Like?&rsquo;
+          <span class="venue">The Conversation, 3 October 2023</span>
+        </li>
+
+        <li>
+          <span class="yr">2023</span>
+          <a href="https://www.forskersonen.no/boker-litteratur-meninger/hvordan-sa-den-forste-bibelen-ut/2165916">&lsquo;Hvordan så den første Bibelen ut?&rsquo;</a>
+          <span class="venue">Forskersonen.no</span>
+        </li>
+
+        <li>
+          <span class="yr">2018</span>
+          &lsquo;The Curious Case of Bible #1, and How Much We Actually Know about It&rsquo;
+          <span class="venue">The Conversation, 30 August 2018</span>
+        </li>
+
+        <li>
+          <span class="yr"></span>
+          <a href="https://www.foross.no/hva-tror-vi/nomina-sacra">&lsquo;Nomina sacra&rsquo;</a> &mdash; an introduction, in Norwegian, to the contracted divine names and why modern editions of the Greek New Testament might do well to print them.
+          <span class="venue">Foross.no</span>
+        </li>
+
+      </ul>
+
+      <p class="muted" style="margin-top:1.5rem">Further pieces on <a href="https://theconversation.com/profiles/tomas-bokedal-539977">The Conversation</a>, <a href="https://www.foross.no/author/tbokedal/">Foross.no</a> and in <a href="https://www.modernreformation.org/resources/authors/tomas-bokedal">Modern Reformation</a>.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>NLA University College, Bergen, Norway.</p>
+      <ul class="contact">
+        <li><span class="label">Email</span><a href="mailto:tomas.bokedal@nla.no">tomas.bokedal@nla.no</a></li>
+        <li><span class="label">Research output</span><a href="https://abdn.elsevierpure.com/en/publications/?search=tomas%20bokedal&amp;searchBy=PartOfNameOrTitle">Aberdeen Pure</a></li>
+        <li><span class="label">Research profile</span><a href="https://nva.sikt.no/research-profile/1870985">NVA (Sikt)</a></li>
+        <li><span class="label">Papers</span><a href="https://aberdeen.academia.edu/TomasBokedal">Academia.edu</a></li>
+        <li><span class="label">Staff page</span><a href="https://www.nla.no/en/about-nla/find-employees/tomas-bokedal">NLA University College</a></li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div>Tomas Bokedal &middot; Bergen &middot; last updated September 2026</div>
+</footer>
+
+<script>
+// Until portrait.jpg exists, show a labelled placeholder rather than a broken image.
+(function(){
+  var fig = document.querySelector('.portrait');
+  if(!fig) return;
+  var img = fig.querySelector('img');
+  img.addEventListener('error', function(){ fig.classList.add('empty'); });
+  if(img.complete && img.naturalWidth === 0) fig.classList.add('empty');
+})();
+
+// Mark the section currently in view in the side navigation.
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.rail a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+
+  var map = {};
+  links.forEach(function(a){
+    var el = document.querySelector(a.getAttribute('href'));
+    if(el) map[el.id] = a;
+  });
+
+  var seen = {};
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ seen[e.target.id] = e.isIntersecting; });
+    var current = null;
+    Object.keys(map).forEach(function(id){ if(seen[id] && !current) current = id; });
+    links.forEach(function(a){ a.removeAttribute('aria-current'); });
+    if(current) map[current].setAttribute('aria-current','true');
+  }, { rootMargin:'-15% 0px -70% 0px', threshold:0 });
+
+  Object.keys(map).forEach(function(id){ obs.observe(document.getElementById(id)); });
+})();
+</script>
+
+</body>
+</html>
